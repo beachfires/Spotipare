@@ -1,0 +1,6 @@
+*.pyc
+*.swp
+config.py
+venv/
+__pycache__/
+.env

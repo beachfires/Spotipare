@@ -1,0 +1,185 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #000100;
+  color: #FEFFFE;
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+}
+
+.header h1 {
+  font-size: 3rem;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: #23CF5F;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.main-form {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  flex-direction: column;
+}
+
+:-ms-input-placeholder {
+  color: white;
+  opacity: .5;
+}
+
+::-webkit-input-placeholder {
+  color: white;
+  opacity: .5;
+}
+
+.user-field {
+  font-weight: 700;
+  font-size: 2em;
+  color: white;
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0);
+  margin: 0 0.5em;
+  border: 0;
+  border-bottom: green solid 2px;
+  border-radius: 0;
+  outline: 0;
+  -webkit-transition: all .1s linear;
+  -moz-transition: all .1s linear;
+  transition: all .1s linear;
+}
+
+.user-field.active {
+  outline: 0;
+  color: #23CF5F;
+  text-align: left;
+}
+
+.btn-go {
+  width: 100px;
+  margin-top: 15px;
+  background-color: #23CF5F;
+  border: none;
+  border-radius: 2px;
+  color: #FEFFFE;
+  cursor: pointer;
+  outline: none;
+  padding: 0.7em;
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  transition: all .5s;
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+.btn-go:hover {
+  background-color: #1A9746;
+  color: #FEFFFE;
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  transition: all .5s;
+}
+
+.music_msg {
+  text-align: center;
+}
+
+.music_msg span {
+  color: #23CF5F;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  padding: 10px;
+}
+
+.grid-item {
+  padding: 20px;
+  font-size: 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.song_name {
+  margin-top: 10px;
+}
+
+.song_artist {
+  color: #23CF5F;
+}
+
+form input::-webkit-validation-bubble-message,
+form select::-webkit-validation-bubble-message,
+form textarea::-webkit-validation-bubble-message {
+  display: none;
+}
+
+.footer {
+  padding: 1rem;
+  text-align: center;
+  height: 30px;
+}
+
+.footer a {
+  color: #23CF5F;
+  text-decoration: none;
+}
+
+.usr-help { 
+  text-decoration: none;
+  font-size:13px;
+  color: #23CF5F;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media only screen and (min-device-width:320px) and (max-device-width:480px) and (-webkit-min-device-pixel-ratio:2) and (orientation:portrait) {
+  .header {
+      text-align: center;
+  }
+  .header h1 {
+      font-size: 3rem;
+  }
+  .header h3 {
+      font-size: 20px;
+  }
+  .music_msg h2 {
+      font-size: 18px;
+  }
+  .grid-container {
+      grid-template-columns: 50% 50%;
+  }
+  .user-fields {
+      display: flex;
+      flex-direction: column;
+  }
+  .user-fields input {
+      width: 250px;
+  }
+  .user-fields input:nth-child(2) {
+      margin-top: 10px;
+  }
+  .usr-help {
+    font-size:10px;
+  }
+}

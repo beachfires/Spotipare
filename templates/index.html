@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Spotipare</title>
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename= 'favicon.png') }}" sizes="32x32">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'mystyle.css') }}">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111923608-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-111923608-1');
+    </script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    window.twttr = (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+    if (d.getElementById(id)) return t;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "https://platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js, fjs);
+    t._e = [];
+    t.ready = function(f) {
+        t._e.push(f);
+    };
+    return t;
+    }(document, "script", "twitter-wjs"));
+
+});
+  </script>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1050319611634341",
+    enable_page_level_ads: true
+  });
+</script>
+</head>
+  <body>
+    <div class="container">
+        <div class="main-content">
+			<div class="top-bar">
+            <a class="twitter-share-button"
+            href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fspotipare.com&text=Find%20songs%20in%20common%20with%20Spotify%20users">
+        Tweet
+            </a>
+			<a class="usr-help" target="_blank" href="https://community.spotify.com/t5/Accounts/how-do-i-find-my-spotify-user-id/m-p/665688#M86799">Where do I find my Spotify userID?</a>
+			</div>
+            <div class=header>
+                <h1> Spotipare </h1>
+                <h3>Find songs in common with Spotify users</h3>
+            </div>
+            <div>
+                <form class="main-form" method="GET">
+                    <div class="user-fields">
+                    <input class="user-field" name="usr1" placeholder="Spotify user" oninvalid="this.setCustomValidity('Enter Spotify Username')" oninput="setCustomValidity('')" spellcheck="false" required>
+                    <input class="user-field" name="usr2" placeholder="Spotify user" oninvalid="this.setCustomValidity('Enter Spotify Username')" oninput="setCustomValidity('')" spellcheck="false" required>
+                    </div>
+                    <input class="btn-go" type="submit" value="Go">
+                </form>
+            </div>
+        
+            {% if users or msg %}
+            <div class="music_msg">
+                {% if result %}
+                <h2>Songs listened to by <span>{{users[0]}}</span> & <span>{{users[1]}}</span></h2>
+				{% elif msg %}
+				<h2> {{ msg }} </h2>
+				{% else %}
+                <h2><span>{{users[0]}}</span> & <span>{{users[1]}}</span> have no songs in common <span>:(</span></h2>
+                {% endif %}
+            </div>
+            {% endif %}
+        
+            {% if result %}
+                <div class="grid-container">
+                {% for item in result %}
+                    <div class="grid-item">
+                        <img src="{{ item['img'] }}" height="64" width="64">
+                        <span class="song_name">{{ item['song_name'] }}</span>
+                        <span class="song_artist"> {{ ', '.join(item['artists']) }} </span>
+                    </div>
+                {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+         <div class="footer">
+             Found a bug or want to say something nice? - <a href="mailto:human@spotipare.com" target="_top">human@spotipare.com</a>
+        </div>
+    </div>  
+    
+  </body>
+</html>
