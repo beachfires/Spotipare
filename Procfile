@@ -1,1 +1,1 @@
-web: gunicorn flask_app --preload --workers 1 --log-file -
+web: gunicorn --bind 0.0.0.0:5000 wsgi:app --workers 1 --log-file -
