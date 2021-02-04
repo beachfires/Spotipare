@@ -1,4 +1,4 @@
-# Spotipare
+ Spotipare
 
 Find songs in common between two Spotify users
 
@@ -37,8 +37,18 @@ Add the client_id and client_secret to a .env file. A sample has been provided n
 Start the Spotipare server locally
 
 ```sh
-$ python flask_app.py
+$ python spotipare.py
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+```
+
+or using gunicorn
+
+```sh
+$ gunicorn --bind 0.0.0.0:5000 wsgi:app
+[2021-02-04 19:50:09 +0000] [75955] [INFO] Starting gunicorn 20.0.4
+[2021-02-04 19:50:09 +0000] [75955] [INFO] Listening at: http://0.0.0.0:5000 (75955)
+[2021-02-04 19:50:09 +0000] [75955] [INFO] Using worker: sync
+[2021-02-04 19:50:09 +0000] [75956] [INFO] Booting worker with pid: 75956
 ```
 
 ## Deployment

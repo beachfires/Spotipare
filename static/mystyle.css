@@ -30,6 +30,10 @@ body {
   flex-direction: column;
 }
 
+.header a{
+  text-decoration: none;
+}
+
 .main-form {
   display: flex;
   align-items: center;
